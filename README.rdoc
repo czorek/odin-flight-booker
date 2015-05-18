@@ -1,28 +1,12 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a flight booker app, with a following forkflow:
 
-Things you may want to cover:
+- A user enters desired date and airport and searches for a flight
+- he chooses from a list of eligible flights
+- enters passengers information (for more than one passenger)
+- enters billing information
 
-* Ruby version
+The booking will require nested forms etc.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+The full spec can be found here: http://www.theodinproject.com/ruby-on-rails/building-advanced-forms?ref=lnav
