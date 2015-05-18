@@ -1,6 +1,6 @@
 == README
 
-This is a flight booker app, with a following forkflow:
+This is a flight booker app, with a following owrkflow:
 
 - A user enters desired date and airport and searches for a flight
 - he chooses from a list of eligible flights
