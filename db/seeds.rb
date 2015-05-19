@@ -1,4 +1,5 @@
-codes = ['NYC', 'LAX', 'WAW', 'ALW', 'WSZ', 'VLL', 'TLS', 'TYO','FSD', 'STI']
+codes = ['NYC', 'LAX', 'WAW', 'ALW', 'WSZ', 'VLL', 'TLS', 'TYO','FSD', 'STI',
+         'ACY', 'BAU', 'BJS', 'CTA', 'DYG']
 
 def rand_in_range(from, to)
   rand * (to - from) + from
@@ -16,10 +17,10 @@ def random_to_airport(from_airport)
   Airport.all.select{ |a| a.id != from_airport }.map{ |a| a.id }.sample
 end
 
-2.times do
+15.times do
   Airport.all.each do |airport|
     Flight.create(from_airport_id: airport.id, to_airport_id: random_to_airport(airport.id),
-                  start_datetime: rand_time(Time.zone.now + 2.weeks), 
+                  start_datetime: rand_time(Time.zone.now + 6.months), 
                   duration: rand_in_range(7200, 32000))
   end
 end
