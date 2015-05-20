@@ -1,0 +1,20 @@
+<%= form_tag(flights_path, method: 'get') do |f| %> 
+  <p>
+   <%= select_tag(:from_airport_id, options_for_select(Airport.all.map{ |a| [a.code, a.id]}),
+                  :prompt => "Select origin airport") %> 
+  </p>
+  <p>
+   <%= select_tag(:to_airport_id, options_for_select(Airport.all.map{ |a| [a.code, a.id]}),
+                  :prompt => "Select destination") %> 
+  </p>
+  <p>
+    <%= select_tag(:passengers_number, options_for_select([1,2,3,4]), prompt: "Number of tickets") %>
+  </p>
+  <p>
+    <%= select_tag(:start_datetime, options_for_select(Flight.get_start_dates.sort),
+                   prompt: "Select date") %>
+  </p>
+  <p>
+    <%= submit_tag "Search" %>
+  </p>
+<% end %>
