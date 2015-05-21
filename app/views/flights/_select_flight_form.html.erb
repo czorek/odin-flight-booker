@@ -1,0 +1,12 @@
+<%= form_tag(controller: 'bookings', action: 'new', method: 'get') %>
+  <% @flights.each do |flight| %>
+    <p>
+      <%= radio_button_tag(:flight_id, "#{flight.id}")%>
+      <%= label_tag(:flight, "#{Airport.find(flight.from_airport_id).code} to #{Airport.find(flight.to_airport_id).code}
+                             leaving on #{flight.start_datetime}") %>
+      <%= hidden_field_tag(:passengers_number, params[:passengers_number]) %>                             
+    </p>
+  <% end %>
+  <p>
+    <%= submit_tag "Book a flight" %>
+  </p>

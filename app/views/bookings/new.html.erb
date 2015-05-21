@@ -1,0 +1,8 @@
+<h1>Book tickets</h1>
+<%= form_for(@booking, url: { action: 'create' }) do |f| %>
+  <P><b><%= "Flight #{@flight.id} information:" %></b></P>
+  <p><%= "From: #{Airport.find(@flight.from_airport_id).code}" %></p>
+  <p><%= "To: #{Airport.find(@flight.to_airport_id).code}" %></p>
+  <p><%= "On: #{@flight.start_datetime}" %></p>
+  <p><%= "No. of tickets: #{@passengers.count}" %></p>
+<% end %>

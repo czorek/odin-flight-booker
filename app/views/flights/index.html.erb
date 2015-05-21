@@ -1,10 +1,5 @@
 <h1>Find a flight</h1>
 <%= render partial: 'flight_search_form' %>
-<% unless @flights.empty? %>
-  <% @flights.each do |flight| %>
-  <p>
-    <%= radio_button_tag(:flight, "#{flight.id}") %>
-    <%= label_tag(:flight, "#{Airport.find(params[:from_airport_id]).code} to #{Airport.find(params[:to_airport_id]).code} leaving on #{flight.start_datetime}") %>
-  </p>
-  <% end %>
+<% unless @flights.empty? || (@flights.count == Flight.all.count) %>
+  <%= render partial: 'select_flight_form' %>
 <% end %>

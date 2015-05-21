@@ -6,6 +6,8 @@ class Flight < ActiveRecord::Base
 
   belongs_to :from_airport, class_name: "Airport"
   belongs_to :to_airport,   class_name: "Airport"
+  has_many :bookings
+  has_many :passengers,     through: :bookings
 
   def self.get_start_dates
     Flight.all.map{ |f| f.start_datetime.to_date }.uniq
@@ -19,7 +21,7 @@ class Flight < ActiveRecord::Base
       parsed_date = Date.parse(query[:start_datetime])
       conditions[:start_datetime]  = parsed_date.beginning_of_day..parsed_date.end_of_day
     end
-    Flight.where(conditions)
+    Flight.all.where(conditions)
   end
 end
 
