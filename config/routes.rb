@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post 'bookings/new'
 
   get 'bookings/create'
+  post 'bookings/create'
 
   root 'flights#index' 
   resources :flights

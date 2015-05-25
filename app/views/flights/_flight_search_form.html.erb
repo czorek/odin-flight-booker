@@ -6,7 +6,7 @@
     <%= select_tag(:start_datetime,  options_for_select(Flight.get_start_dates.sort), prompt: "Select date") %>
   </p>
   <p>
-    <%= label_tag(:passengers_number," No. of passengers: ") %>
+    <%= label_tag(:passengers_number, "No. of passengers: ") %>
     <%= select_tag(:passengers_number, options_for_select([1,2,3,4])) %>
   </p>
   <p>

@@ -1,8 +1,19 @@
 <h1>Book tickets</h1>
 <%= form_for(@booking, url: { action: 'create' }) do |f| %>
-  <P><b><%= "Flight #{@flight.id} information:" %></b></P>
-  <p><%= "From: #{Airport.find(@flight.from_airport_id).code}" %></p>
-  <p><%= "To: #{Airport.find(@flight.to_airport_id).code}" %></p>
+  <P><b><%= "Flight #{chosen_flight.id} information:" %></b></P>
+  <p><%= "From: #{Airport.find(chosen_flight.from_airport_id).code}" %></p>
+  <p><%= "To: #{Airport.find(chosen_flight.to_airport_id).code}" %></p>
   <p><%= "On: #{@flight.start_datetime}" %></p>
-  <p><%= "No. of tickets: #{@passengers.count}" %></p>
+  <p><%= "No. of tickets: #{params[:passengers_number]}" %></p>
+  <%= f.fields_for :passengers do |passenger_form| %>
+    <p>
+      <%= passenger_form.label :name, "Full name:" %>
+      <%= passenger_form.text_field :name %>
+    </p>
+    <p>
+      <%= passenger_form.label :email, "Email:" %>
+      <%= passenger_form.email_field :email %>
+    </p>
+  <% end %>
+<%= f.submit "Book this flight" %>
 <% end %>
